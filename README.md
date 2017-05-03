@@ -1,19 +1,31 @@
 # Minesweeper
 
-**TODO: Add description**
+** Rest API for a Minesweeper Mobile Client **
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `minesweeper` to your list of dependencies in `mix.exs`:
+This is an elixir rest api, built with Plug and Cowboy.
 
-```elixir
-def deps do
-  [{:minesweeper, "~> 0.1.0"}]
-end
+You need elixir 1.4+ and erlang 19 installed in your computer.
+
+```bash
+$ git clone https://github.com/batok/minesweeper
+$ cd minesweeper
+$ mix deps.get
+$ mix compile
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/minesweeper](https://hexdocs.pm/minesweeper).
+If you want to start interactively this app do...
+
+```bash
+$ iex -S mix
+```
+
+Into iex REPL type
+```
+  Minesweeper.start(nil)
+``` 
+
+To stop the Api Server ctrl-c twice
+
 
