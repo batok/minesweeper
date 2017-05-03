@@ -1,12 +1,14 @@
 # Minesweeper
 
-** Rest API for a Minesweeper Mobile Client **
+** Rest API Server in Elixir for a Minesweeper Mobile Client **
 
 ## Installation
 
-This is an elixir rest api, built with Plug and Cowboy.
+This is an elixir rest api server, built with Plug and Cowboy.
 
 You need elixir 1.4+ and erlang 19 installed in your computer.
+
+Instructions to install both ( elixir and erlang ) depends on your computer OS.
 
 ```bash
 $ git clone https://github.com/batok/minesweeper
