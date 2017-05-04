@@ -30,4 +30,20 @@ Into iex REPL type
 
 To stop the Api Server ctrl-c twice
 
+An api client is included ( minesweeper.py ) which is built for python3
 
+Try it with ...
+
+python3 minesweeper.py
+
+
+## RATIONALE
+
+This API exposes 4 operations, all with GET METHOD.
+
+api/login?user={}&password={}
+api/start?token={}&mines={}&rows={}&columns={}
+api/select?token={}&x={}&y={}
+api/score?token={}
+
+The default Endpoint is at http://localhost:4422/{operation}
