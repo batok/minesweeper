@@ -123,13 +123,19 @@ defmodule Minesweeper do
     match?(token, "mytoken")
   end
 
+  defp create_board(token) do
+    #here the board is generated and stored in the agent
+    #meanwhile this is just a sample
+    "0,1,0,0,0;0,0,0,0;1,0,0,0"
+  end
+
   def start_game(%{"token" => token, 
     "mines" => mines, "rows" => rows, "columns" => columns}, :web) do
     # returns a board
     # in a json with something like this. 
     # {board: "0,1,0,0,0;0,0,0,0;1,0,0,0"}  where ; is the row delimiter
     if token_valid?(token) do
-      %{board: "0,1,0,0,0;0,0,0,0;1,0,0,0", seconds: 0, mines: mines}
+      %{board: create_board(token), seconds: 0, mines: mines}
       |> Poison.encode! 
     else
       raise "invalid"
@@ -154,8 +160,11 @@ defmodule Minesweeper do
 
   defp update_board(token, x, y) do
     #here the selected square is updated in the board
-    nil
+    #and returns -1 if is a mine, 0, if nothing is near, 
+    #and >0 meaning number of surrounding mines. 
+    -1
   end
+
 
   defp get_score(token) do
     #sample data meanwhile
@@ -166,9 +175,9 @@ defmodule Minesweeper do
 
   def select_square(%{"token" => token, "x" => x, "y" => y}, :web) do
     if token_valid?(token) do
-      update_board(token, x, y)
+      what = update_board(token, x, y)
       {seconds, mines} = get_score(token) 
-      %{seconds: seconds, mines: mines}
+      %{seconds: seconds, mines: mines, square_value: what}
       |> Poison.encode!
     else
       raise "error"
@@ -257,12 +266,10 @@ defmodule Minesweeper do
   def test(:login) do 
     json = Poison.decode!(login(%{"user" => "foo", "password" => "bar"}, :web))
     Map.get(json, "token", nil)
-
   end
 
   def test(:start) do
     json = Poison.decode!(start_game(%{"token" => "mylogin", "mines" => 6, "rows" => 10, "columns" => 10}, :web))
-
   end
 
 

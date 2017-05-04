@@ -31,7 +31,8 @@ def select(x,y):
     r = get_resource("select", values)
     seconds = r["seconds"]
     mines = r["mines"]
-    return (seconds, mines)
+    square_value = r["square_value"]
+    return (seconds, mines, square_value)
 
 def score():
     values = dict(token=tk.token)
