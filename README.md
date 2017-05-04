@@ -41,9 +41,9 @@ python3 minesweeper.py
 
 This API exposes 4 operations, all with GET METHOD.
 
-api/login?user={}&password={}
-api/start?token={}&mines={}&rows={}&columns={}
-api/select?token={}&x={}&y={}
-api/score?token={}
+### api/login?user={}&password={}
+### api/start?token={}&mines={}&rows={}&columns={}
+### api/select?token={}&x={}&y={}
+### api/score?token={}
 
 The default Endpoint is at http://localhost:4422/{operation}
